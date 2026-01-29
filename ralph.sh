@@ -1,8 +1,8 @@
 #!/bin/bash
 # ralph.sh
 # Usage: ./ralph.sh <iterations>
-set -e
-if [ -z "$1" ]; then
+set -e
+if [ -z "$1" ]; then
   echo "Usage: $0 <iterations>"
   exit 1
 fi
@@ -12,7 +12,7 @@ DONE_FILE="./done.txt"
 rm -f $DONE_FILE
 
 # 开始牛马循环
-for ((i=1; i<=$1; i++)); do
+for ((i=1; i<=$1; i++)); do
   # 每次迭代：运行 Claude Code，传入相同的提示
   echo "=== 迭代 $i / $1 ==="
   result=$(cat prompt.md | claud --dangerously-skip-permissions -p)
@@ -22,5 +22,4 @@ for ((i=1; i<=$1; i++)); do
     exit 0
   fi
 done
-
 
