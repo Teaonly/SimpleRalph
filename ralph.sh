@@ -14,7 +14,8 @@ rm -f $DONE_FILE
 # 开始牛马循环
 for ((i=1; i<=$1; i++)); do
   # 每次迭代：运行 Claude Code，传入相同的提示
-  result=$(cat prompt.md | claud --dangerously-skip-permissions -p) 
+  echo "=== 迭代 $i / $1 ==="
+  result=$(cat prompt.md | claud --dangerously-skip-permissions -p)
   echo "$result"
   if [ -f "$DONE_FILE" ]; then 
     echo "任务完成，退出。"
